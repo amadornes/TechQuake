@@ -1,9 +1,8 @@
 package com.amadornes.techquake;
 
-import net.minecraftforge.common.config.Configuration;
+import java.util.logging.Logger;
 
-import org.apache.logging.log4j.Logger;
-
+import com.amadornes.techquake.init.TQBlocks;
 import com.amadornes.techquake.proxy.CommonProxy;
 import com.amadornes.techquake.ref.ModInfo;
 
@@ -24,18 +23,22 @@ public class TechQuake {
 	@SidedProxy(clientSide = ModInfo.PROXY_LOCATION + ".ClientProxy", serverSide = ModInfo.PROXY_LOCATION
 			+ ".CommonProxy")
 	public static CommonProxy proxy;
-	public static Logger log;
-	public static Configuration config;
+
+	public static Logger log = Logger.getLogger(ModInfo.NAME);
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		TQBlocks.init();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+
 	}
+
 }
